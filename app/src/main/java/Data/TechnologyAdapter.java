@@ -7,5 +7,5 @@ public interface TechnologyAdapter {
     public void setTechnology(Technology technology);
     public Technology getTechnology(String id);
     public ArrayList<String> getTypes();
-    public HashMap<String, HashMap<String, String>> getMap ();
+    public HashMap<Integer, HashMap<String, String>> getMap ();
 }

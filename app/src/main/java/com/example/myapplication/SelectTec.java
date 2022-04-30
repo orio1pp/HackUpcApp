@@ -17,10 +17,8 @@ import java.util.ArrayList;
 import Domain.PersistanceController;
 
 public class SelectTec extends AppCompatActivity {
-    //private ControllerSelectTech controllerSelectTech = new ControllerSelectTech();
     RecyclerView recyclerView;
     RecyclerViewTechSel recyclerViewTechSet;
-    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

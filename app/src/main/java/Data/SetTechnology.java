@@ -32,8 +32,9 @@ public class SetTechnology implements TechnologyAdapter{
     }
 
     @Override
-    public HashMap<String, HashMap<String, String>> getMap() {
-        HashMap<String, HashMap<String, String>> techs = new HashMap<String, HashMap<String,String>>();
+    public HashMap<Integer, HashMap<String, String>> getMap() {
+        Integer i =0;
+        HashMap<Integer, HashMap<String, String>> techs = new HashMap<Integer, HashMap<String,String>>();
         for (Map.Entry<String, Technology> tech : technologies.entrySet()) {
             HashMap<String, String> charact = new HashMap<>();
             Mobile mobile = (Mobile) tech.getValue();
@@ -58,7 +59,9 @@ public class SetTechnology implements TechnologyAdapter{
             charact.put("Refrigeration", mobile.getRefrigeration());
             charact.put("Weight", mobile.getWeight());
             charact.put("Brand", mobile.getBrand());
-            techs.put(mobile.getName(), charact);
+            charact.put("Name", mobile.getName());
+            techs.put(i, charact);
+            i++;
         }
         return techs;
     }

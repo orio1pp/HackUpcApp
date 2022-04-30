@@ -64,9 +64,14 @@ public class CSVManager implements PersisAdapter {
             248 : "Secondary Camera Number of pixels (MP)"
             168 : "Bluetooth"
             172 : "Wireless Services"
+            305 : "PreuCercatEuros"
+            306 : "Puntuacio"
+            307 : "Type"
+            308 : "Link"
+            5 : "Brief"
         */
 
-        int[] cols = {0, 1, 25, 30, 33, 50, 92, 175, 281, 294, 198, 216, 168, 172};
+        int[] cols = {0, 1, 25, 30, 33, 50, 92, 175, 281, 294, 198, 216, 168, 172, 305, 306, 307, 308, 5};
 
         ArrayList<ArrayList<String>> tosend = new ArrayList<ArrayList<String>>();
         for (ArrayList<String> a : dades){
@@ -79,38 +84,38 @@ public class CSVManager implements PersisAdapter {
     }
     @Override
     public boolean convertData(){
-        data.remove(1);
+        data.remove(0);
         for(ArrayList<String> device : data){
             Mobile mobile = new Mobile();
             for(int characteris = 0; device.size()>characteris; characteris++){
                 String d = device.get(characteris);
                 switch(characteris){
-                    case 0 :
-                        mobile.setName(d);
+                    case 0:
+                        mobile.setBrand(d);
                         break;
                     case 1:
-                        mobile.setOperatingSystem(d);
+                        mobile.setName(d);
                         break;
                     case 2:
-                        mobile.setProcessor(d);
+                        mobile.setOperatingSystem(d);
                         break;
                     case 3:
-                        mobile.setRam(d);
+                        mobile.setProcessor(d);
                         break;
                     case 4:
-                        mobile.setResolution(d);
+                        mobile.setRam(d);
                         break;
                     case 5:
-                        mobile.setGpu(d);
+                        mobile.setResolution(d);
                         break;
                     case 6:
-                        mobile.setNfc(d);
+                        mobile.setGpu(d);
                         break;
                     case 7:
-                        mobile.setBattery(d);
+                        mobile.setNfc(d);
                         break;
                     case 8:
-                        mobile.setWifi(d);
+                        mobile.setBattery(d);
                         break;
                     case 9:
                         mobile.setInalambricCharge(d);
@@ -125,10 +130,26 @@ public class CSVManager implements PersisAdapter {
                         mobile.setBluetooth(d);
                         break;
                     case 13:
+                        mobile.setWifi(d);
                         break;
+                    case 14:
+                        mobile.setPrice(d);
+                        break;
+                    case 15:
+                        mobile.setRate(d);
+                        break;
+                    case 16:
+                        break;
+                    case 17:
+                        break;
+                    case 18:
+                        mobile.setDescription(d);
+
                 }
             }
+
             setTechnology.setTechnology(mobile);
+            System.out.println(mobile.getPrice());
         }
         return true;
     }

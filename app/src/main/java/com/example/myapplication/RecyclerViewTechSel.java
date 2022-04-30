@@ -43,7 +43,7 @@ public class RecyclerViewTechSel extends RecyclerView.Adapter<RecyclerViewTechSe
                         context.startActivity(switchActivityIntent);
                         break;
                     case "laptops":
-                        System.out.println("chupame la pija");
+                        System.out.println("Time over");
                         break;
                 }
             }

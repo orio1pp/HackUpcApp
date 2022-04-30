@@ -9,12 +9,12 @@ import Persistencia.CSVManager;
 import Persistencia.FactoryPersi;
 
 public class PersistanceController {
-    private FactoryPersi factoryPersi = new FactoryPersi();
-    private CSVManager csvManager = factoryPersi.getCsvManager();
-    public void getData(Context context) throws Exception {
+    private static FactoryPersi factoryPersi = new FactoryPersi();
+    private static CSVManager csvManager = factoryPersi.getCsvManager();
+    public static void getData(Context context) throws Exception {
         csvManager.seleccio(context);
     }
-    public void convertData(){
+    public static void convertData(){
         csvManager.convertData();
     }
 }
