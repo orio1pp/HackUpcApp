@@ -15,6 +15,7 @@ public class ControllerSelectTech {
             switch (s){
                 case "mobile":
                     selectTec.changeToSelectedDevice("mobile");
+                    break;
             }
     }
 }

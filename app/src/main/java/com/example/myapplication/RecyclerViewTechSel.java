@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,8 +36,16 @@ public class RecyclerViewTechSel extends RecyclerView.Adapter<RecyclerViewTechSe
 
             @Override
             public void onClick(View view) {
-                ControllerSelectTech controllerSelectTech = new ControllerSelectTech();
-                controllerSelectTech.selectedTech(data.get(position));
+                switch(data.get(holder.getAdapterPosition())) {
+                    case "mobile":
+                        Intent switchActivityIntent = new Intent(context, Devices.class);
+                        switchActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        context.startActivity(switchActivityIntent);
+                        break;
+                    case "laptops":
+                        System.out.println("chupame la pija");
+                        break;
+                }
             }
         });
     }

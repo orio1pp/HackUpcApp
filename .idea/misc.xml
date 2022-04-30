@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/oriol/OneDrive/Escritorio/kike/HackUpcApp/app/src/main/res/layout/activity_devices.xml" value="0.14990942028985507" />
+        <entry key="..\:/Users/oriol/OneDrive/Escritorio/kike/HackUpcApp/app/src/main/res/layout/activity_main.xml" value="0.14492753623188406" />
+        <entry key="..\:/Users/oriol/OneDrive/Escritorio/kike/HackUpcApp/app/src/main/res/layout/devices_recyclerview.xml" value="0.23143115942028986" />
+        <entry key="..\:/Users/oriol/OneDrive/Escritorio/kike/HackUpcApp/app/src/main/res/layout/tech_selector_recyclerview.xml" value="0.23143115942028986" />
       </map>
     </option>
   </component>
