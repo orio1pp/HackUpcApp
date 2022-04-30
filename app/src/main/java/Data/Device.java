@@ -9,6 +9,9 @@ public class Device extends Technology {
     private String OperatingSystem;
     private String Gpu;
 
+    public Device(){
+        super();
+    }
     public Device(String processor, String ram, String mainMemory, String refrigeration, String connections, String operatingSystem, String gpu,
     String name, String price, String rate, String datePublished, String colour, String description, String image, String weight, String brand) {
         super(name, price, rate, datePublished, colour, description, image, weight, brand);

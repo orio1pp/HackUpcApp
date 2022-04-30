@@ -14,8 +14,11 @@ public class SetTechnology implements TechnologyAdapter{
     }
 
     @Override
-    public boolean setTechnologies(String data) {
-        return false;
+    public void setTechnology(Technology technology) {
+        if(!technologies.containsKey(technology.getName())){
+            technologies.put(technology.getName(), technology);
+        }
+
     }
 
     @Override

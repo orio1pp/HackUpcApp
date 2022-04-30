@@ -15,7 +15,6 @@ public class SelectTec extends AppCompatActivity {
     //private ControllerSelectTech controllerSelectTech = new ControllerSelectTech();
     RecyclerView recyclerView;
     RecyclerViewTechSel recyclerViewTechSet;
-    //min 9
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class SelectTec extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        persistanceController.convertData();
 
         ControllerSelectTech controllerSelectTech = new ControllerSelectTech();
         ArrayList<String> types = controllerSelectTech.getTypes();
@@ -41,11 +40,10 @@ public class SelectTec extends AppCompatActivity {
     }
 
     public void changeToSelectedDevice(String tech) {
-        /*
-        Intent switchActivityIntent = new Intent(this, ShowDevices.class);
+
+        Intent switchActivityIntent = new Intent(this, Devices.class);
         switchActivityIntent.putExtra("tech", tech);
         startActivity(switchActivityIntent);
 
-         */
     }
 }

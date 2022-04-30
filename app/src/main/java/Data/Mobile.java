@@ -15,7 +15,9 @@ public class Mobile extends Device{
 
 
     private String resolution;
-
+    public Mobile(){
+        super();
+    };
     public Mobile(String battery, String screenSize, String bluetooth, String wifi, String nfc, String inalambricCharge, String fashCharge, String nits, String sim, String frontalCam, String camera,
                   String name, String price, String rate, String datePublished, String colour, String description, String image, String weight, String brand,
                   String processor, String ram, String mainMemory, String refrigeration, String connections, String operatingSystem, String gpu, String resolution) {

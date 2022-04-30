@@ -7,10 +7,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import Data.DataFactory;
+import Data.Mobile;
+import Data.SetTechnology;
+
 public class CSVManager implements PersisAdapter {
     private CSVLoader cl;
     private File dades;
-
+    private ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
+    SetTechnology setTechnology = DataFactory.getSetTechnology();
     public CSVManager()
     {
         cl = CSVLoader.getInstance();
@@ -35,13 +40,13 @@ public class CSVManager implements PersisAdapter {
         return carregarArxiuCarpeta(context.getAssets().open("phonedb_device_dump_sample_all_columns.csv"));
     }
     @Override
-    public ArrayList<ArrayList<String>> seleccio(Context context) throws Exception
+    public boolean seleccio(Context context) throws Exception
     {
         ArrayList<ArrayList<String>> dades = null;
         try {
             //dades = cp.carregarDump100rows();
             dades = this.carregarDumpAllCols(context);
-        } catch (Exception e) {System.out.println("You are stupid");}
+        } catch (Exception e) { return false;}
 
         /*
             0 : "Brand"
@@ -69,8 +74,62 @@ public class CSVManager implements PersisAdapter {
             for (int i = 0; i < cols.length; ++i)
                 tosend.get(tosend.size()-1).add(a.get(cols[i]));
         }
-
-        return tosend;
-
+        data = tosend;
+        return true;
+    }
+    @Override
+    public boolean convertData(){
+        data.remove(1);
+        for(ArrayList<String> device : data){
+            Mobile mobile = new Mobile();
+            for(int characteris = 0; device.size()>characteris; characteris++){
+                String d = device.get(characteris);
+                switch(characteris){
+                    case 0 :
+                        mobile.setName(d);
+                        break;
+                    case 1:
+                        mobile.setOperatingSystem(d);
+                        break;
+                    case 2:
+                        mobile.setProcessor(d);
+                        break;
+                    case 3:
+                        mobile.setRam(d);
+                        break;
+                    case 4:
+                        mobile.setResolution(d);
+                        break;
+                    case 5:
+                        mobile.setGpu(d);
+                        break;
+                    case 6:
+                        mobile.setNfc(d);
+                        break;
+                    case 7:
+                        mobile.setBattery(d);
+                        break;
+                    case 8:
+                        mobile.setWifi(d);
+                        break;
+                    case 9:
+                        mobile.setInalambricCharge(d);
+                        break;
+                    case 10:
+                        mobile.setCamera(d);
+                        break;
+                    case 11:
+                        mobile.setFrontalCam(d);
+                        break;
+                    case 12:
+                        mobile.setBluetooth(d);
+                        break;
+                    case 13:
+                        break;
+                }
+            }
+            setTechnology.setTechnology(mobile);
+        }
+        return true;
     }
 }

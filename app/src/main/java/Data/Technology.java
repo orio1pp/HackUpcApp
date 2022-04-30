@@ -13,7 +13,9 @@ public class Technology {
     public String getBrand() {
         return brand;
     }
-
+    public Technology(){
+        ;
+    }
     public void setBrand(String brand) {
         this.brand = brand;
     }
