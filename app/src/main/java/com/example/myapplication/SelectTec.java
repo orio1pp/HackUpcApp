@@ -27,7 +27,7 @@ public class SelectTec extends AppCompatActivity {
             e.printStackTrace();
         }
 
-         
+
         ControllerSelectTech controllerSelectTech = new ControllerSelectTech();
         ArrayList<String> types = controllerSelectTech.getTypes();
         super.onCreate(savedInstanceState);
