@@ -23,7 +23,6 @@ public class SelectTec extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         PersistanceController persistanceController = new PersistanceController();
-
         try {
             persistanceController.getData(this);
         } catch (Exception e) {
@@ -43,11 +42,7 @@ public class SelectTec extends AppCompatActivity {
         recyclerView.setAdapter(recyclerViewTechSet);
     }
 
-    public void changeView(){
-    }
-
     public void changeToSelectedDevice(String tech) {
         this.getParentActivityIntent();
-
     }
 }

@@ -48,6 +48,13 @@ public class CSVManager implements PersisAdapter {
             dades = this.carregarDumpAllCols(context);
         } catch (Exception e) { return false;}
 
+        System.out.println(dades);
+
+        System.out.println("Entering zone");
+        for(ArrayList<String> x : dades) {
+            for(String y : x) if (y == "") System.out.println("You missed me");
+        }
+        System.out.println("Exiting zone");
         /*
             0 : "Brand"
             1 : "Model"
@@ -79,6 +86,16 @@ public class CSVManager implements PersisAdapter {
             for (int i = 0; i < cols.length; ++i)
                 tosend.get(tosend.size()-1).add(a.get(cols[i]));
         }
+        ArrayList<Integer> erasable = new ArrayList<Integer>();
+
+        for (int i = 0; i < tosend.size(); ++i){
+            for (int j = 0; j < tosend.get(i).size(); ++j)
+            {
+                if (tosend.get(i).get(j) == "") erasable.add(i);
+            }
+        }
+
+        for (int i = erasable.size()-1; i >= 0; --i) tosend.remove(erasable.get(i));
         data = tosend;
         return true;
     }
@@ -89,6 +106,7 @@ public class CSVManager implements PersisAdapter {
             Mobile mobile = new Mobile();
             for(int characteris = 0; device.size()>characteris; characteris++){
                 String d = device.get(characteris);
+                d = d.substring(1, d.length()-1);
                 switch(characteris){
                     case 0:
                         mobile.setBrand(d);
@@ -149,7 +167,6 @@ public class CSVManager implements PersisAdapter {
             }
 
             setTechnology.setTechnology(mobile);
-            System.out.println(mobile.getPrice());
         }
         return true;
     }

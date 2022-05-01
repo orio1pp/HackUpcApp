@@ -35,7 +35,6 @@ public class FilterView extends AppCompatActivity {
         ControllerFilter controllerFilter = new ControllerFilter();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filter);
-        getSupportActionBar().hide();
         this.findViewById(R.id.button2).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -44,7 +43,11 @@ public class FilterView extends AppCompatActivity {
                 String memory =  ((EditText)findViewById(R.id.EditMemory)).getText().toString();
                 String brand = ((EditText)findViewById(R.id.EditBrand)).getText().toString();
 
-                if(checkInput(price,battery,memory,brand)){
+                price = "2000";
+                battery = "2000";
+                memory = "2000";
+                brand = "xiaomi";
+                //if(checkInput(price,battery,memory,brand)){
                     ArrayList<String> filters = new ArrayList<String>();
                     filters.add(price);
                     filters.add(battery);
@@ -55,8 +58,8 @@ public class FilterView extends AppCompatActivity {
                     switchActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     context.startActivity(switchActivityIntent);
                 }
-                else Toast.makeText(FilterView.this, "Data incorrectly introduced", Toast.LENGTH_SHORT);
-            }
+               // else Toast.makeText(FilterView.this, "Data incorrectly introduced", Toast.LENGTH_SHORT);
+            //}
         });
     }
 
