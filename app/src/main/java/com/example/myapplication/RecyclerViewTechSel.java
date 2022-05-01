@@ -38,7 +38,7 @@ public class RecyclerViewTechSel extends RecyclerView.Adapter<RecyclerViewTechSe
             public void onClick(View view) {
                 switch(data.get(holder.getAdapterPosition())) {
                     case "mobile":
-                        Intent switchActivityIntent = new Intent(context, Devices.class);
+                        Intent switchActivityIntent = new Intent(context, FilterView.class);
                         switchActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         context.startActivity(switchActivityIntent);
                         break;
